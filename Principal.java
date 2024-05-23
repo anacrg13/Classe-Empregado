@@ -1,3 +1,16 @@
+Crie uma classe Principal com um menu interativo para testar a classe Empregado. O menu deve permitir ao usuário escolher as seguintes opções para manipular uma lista de empregados:
+Criar novo empregado
+Promover empregado
+Aumentar salário do empregado
+Demitir empregado
+Fazer aniversário do empregado
+Mostrar detalhes dos empregados
+Sair
+
+
+
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +22,7 @@ public class Principal {
         int opcao;
         do {
             exibirMenu();
-            System.out.println("Selecione uma op��o: ");
+            System.out.println("Selecione uma opção: ");
             opcao = input.nextInt();
             input.nextLine();
 
@@ -36,7 +49,7 @@ public class Principal {
                     System.out.println("Saindo...");
                     break;
                 default:
-                    System.out.println("Op��o inv�lida. Tente novamente.");
+                    System.out.println("Opção inválida. Tente novamente.");
                     break;
             }
         } while (opcao != 7);
@@ -48,9 +61,9 @@ public class Principal {
         System.out.println("\n### Menu ###");
         System.out.println("1. Criar novo empregado");
         System.out.println("2. Promover empregado");
-        System.out.println("3. Aumentar sal�rio do empregado");
+        System.out.println("3. Aumentar salário do empregado");
         System.out.println("4. Demitir empregado");
-        System.out.println("5. Fazer anivers�rio do empregado");
+        System.out.println("5. Fazer aniversário do empregado");
         System.out.println("6. Mostrar detalhes dos empregados");
         System.out.println("7. Sair");
     }
@@ -60,7 +73,7 @@ public class Principal {
         String nome = input.nextLine();
         System.out.println("Idade do empregado: ");
         int idade = input.nextInt();
-        System.out.println("Sal�rio do empregado: ");
+        System.out.println("Salário do empregado: ");
         double salario = input.nextDouble();
 
         listaEmpregados.add(new Empregado(nome, idade, salario));
@@ -68,37 +81,37 @@ public class Principal {
     }
 
     private static void promoverEmpregado() {
-        System.out.println("�ndice do empregado a ser promovido: ");
+        System.out.println("Índice do empregado a ser promovido: ");
         int indice = input.nextInt();
         if (indice >= 0 && indice < listaEmpregados.size()) {
             listaEmpregados.get(indice).promover();
             System.out.println("Empregado promovido com sucesso!");
         } else {
-            System.out.println("�ndice inv�lido.");
+            System.out.println("Índice inválido.");
         }
     }
 
     private static void aumentarSalarioEmpregado() {
-        System.out.println("�ndice do empregado a ter aumento salarial: ");
+        System.out.println("Índice do empregado a ter aumento salarial: ");
         int indice = input.nextInt();
         if (indice >= 0 && indice < listaEmpregados.size()) {
-            System.out.println("Percentual de aumento de sal�rio: ");
+            System.out.println("Percentual de aumento de salário: ");
             double percentual = input.nextDouble();
 
             listaEmpregados.get(indice).aumentarSalario(percentual);
-            System.out.println("Sal�rio do empregado aumentado com sucesso!");
+            System.out.println("Salário do empregado aumentado com sucesso!");
         } else {
-            System.out.println("�ndice inv�lido.");
+            System.out.println("Índice inválido.");
         }
     }
 
     private static void demitirEmpregado() {
-        System.out.println("�ndice do empregado a ser demitido: ");
+        System.out.println("Índice do empregado a ser demitido: ");
         int indice = input.nextInt();
         if (indice >= 0 && indice < listaEmpregados.size()) {
-            System.out.println("Motivos de demiss�o: ");
+            System.out.println("Motivos de demissão: ");
             System.out.println("1. Justa causa");
-            System.out.println("2. Decis�o do empregador");
+            System.out.println("2. Decisão do empregador");
             System.out.println("3. Aposentadoria");
             System.out.println("Escolha o motivo: ");
             int motivo = input.nextInt();
@@ -107,25 +120,25 @@ public class Principal {
             listaEmpregados.remove(indice);
             System.out.println("Empregado demitido com sucesso!");
         } else {
-            System.out.println("�ndice inv�lido.");
+            System.out.println("Índice inválido.");
         }
     }
 
     private static void fazerAniversarioEmpregado() {
-        System.out.println("�ndice do empregado que faz anivers�rio: ");
+        System.out.println("Índice do empregado que faz aniversário: ");
         int indice = input.nextInt();
         if (indice >= 0 && indice < listaEmpregados.size()) {
             listaEmpregados.get(indice).fazerAniversario();
-            System.out.println("Anivers�rio do empregado celebrado com sucesso!");
+            System.out.println("Aniversário do empregado celebrado com sucesso!");
         } else {
-            System.out.println("�ndice inv�lido.");
+            System.out.println("Índice inválido.");
         }
     }
 
     private static void mostrarDetalhesEmpregados() {
         System.out.println("### Detalhes dos Empregados ###");
         for (int i = 0; i < listaEmpregados.size(); i++) {
-            System.out.println("�ndice: " + i + " - " + listaEmpregados.get(i));
+            System.out.println("Índice: " + i + " - " + listaEmpregados.get(i));
         }
     }
 }
