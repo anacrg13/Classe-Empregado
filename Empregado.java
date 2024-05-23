@@ -1,3 +1,34 @@
+Implemente uma classe Empregado com os seguintes atributos: nome, idade e salario. Crie os métodos promover(), aumentarSalario(), demitir() e fazerAniversario() com as seguintes regras:
+Regras dos Métodos:
+Todos os atributos devem ser privados e os métodos públicos.
+ Você deve implementar métodos get e set para todos os atributos, independentemente do uso.
+ Implementar método toString.
+promover()
+A promoção só poderá ser realizada se o funcionário tiver mais de 18 anos.
+A promoção resultará em um aumento de 25% no salário, utilizando o método aumentarSalario().
+aumentarSalario()
+Deve receber um percentual de aumento como parâmetro.
+Deve realizar o aumento do salário do funcionário de acordo com o percentual informado.
+demitir()
+Deve receber um motivo como parâmetro (1, 2 ou 3):
+1: Justa causa.
+2: Decisão do empregador.
+3: Aposentadoria.
+Se o motivo for decisão do empregador, o empregado deverá receber uma multa de 40% do salário (realizar este cálculo e informar).
+Se o motivo for justa causa, o funcionário deverá cumprir aviso prévio.
+Se o motivo for aposentadoria, o salário de aposentadoria deve ser calculado conforme a tabela do INSS abaixo:
+Salário entre 1000 e 2000 reais: receberá 1500 reais.
+Salário entre 2000 e 3000 reais: receberá 2500 reais.
+Salário entre 3000 e 4000 reais: receberá 3500 reais.
+Salário acima de 4000 reais: receberá 4000 reais.
+fazerAniversario()
+Aumenta a idade do empregado em 1 ano.
+
+
+
+
+
+
 public class Empregado {
     private String nome;
     private int idade;
@@ -37,7 +68,7 @@ public class Empregado {
         if (this.idade > 18) {
             aumentarSalario(25);
         } else {
-            System.out.println("A promo��o s� pode ser realizada se o funcion�rio tiver mais de 18 anos.");
+            System.out.println("A promoção só pode ser realizada se o funcionário tiver mais de 18 anos.");
         }
     }
 
@@ -48,11 +79,11 @@ public class Empregado {
     public void demitir(int motivo) {
         switch (motivo) {
             case 1:
-                System.out.println("Empregado demitido por justa causa. Deve cumprir aviso pr�vio.");
+                System.out.println("Empregado demitido por justa causa. Deve cumprir aviso prévio.");
                 break;
             case 2:
                 double multa = this.salario * 0.40;
-                System.out.println("Empregado demitido por decis�o do empregador. Receber� uma multa de 40% do sal�rio: R$ " + multa);
+                System.out.println("Empregado demitido por decisão do empregador. Receberá uma multa de 40% do salário: R$ " + multa);
                 break;
             case 3:
                 double salarioAposentadoria;
@@ -65,10 +96,10 @@ public class Empregado {
                 } else {
                     salarioAposentadoria = 4000;
                 }
-                System.out.println("Empregado aposentado. Sal�rio de aposentadoria: R$ " + salarioAposentadoria);
+                System.out.println("Empregado aposentado. Salário de aposentadoria: R$ " + salarioAposentadoria);
                 break;
             default:
-                System.out.println("Motivo de demiss�o inv�lido.");
+                System.out.println("Motivo de demissão inválido.");
         }
     }
 
@@ -77,6 +108,6 @@ public class Empregado {
     }
 
     public String toString() {
-        return "Nome: " + nome + ", Idade: " + idade + ", Sal�rio: R$ " + salario;
+        return "Nome: " + nome + ", Idade: " + idade + ", Salário: R$ " + salario;
     }
 }
